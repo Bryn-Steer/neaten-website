@@ -5,7 +5,7 @@
     'use strict';
 
     const enableRtl = 'off'; // on > enable RTL, off > deactive RTL
-    const preloader = 'on'; // on > enable preloader, off > disable preloader
+    const preloader = 'off'; // on > enable preloader, off > disable preloader
     const headerAutoshow = "on"; // on > enable fixed header, off > disable fixed header
     const topbar = "on"; // on > enable fixed header, off > disable fixed header
     const smoothscroll = "on" // on > enable smooth scroll, off > disable smooth scroll
