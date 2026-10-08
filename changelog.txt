@@ -1,0 +1,21 @@
+AutoDetail 1.0.7
+New added: Homepage 11
+
+AutoDetail 1.0.6
+New added: Homepage 10
+
+AutoDetail 1.0.5
+New added: Homepage 9
+
+AutoDetail 1.0.4
+New added: Homepage 8
+
+AutoDetail 1.0.3
+New added: Car Listing Page (car-listing.html)
+New added: Car Single Page (car-single.html)
+
+AutoDetail 1.0.2
+New added: Homepage 7
+
+AutoDetail 1.0.1
+New added: Homepage 6

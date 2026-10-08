@@ -1,0 +1,854 @@
+
+/* NEATEN BRAND THEME */
+:root {
+    --primary-color: #20363A;
+    --primary-color-rgb: 32, 54, 58;
+    --bg-dark-1: #FFFFFF;
+    --bg-dark-2: #F8FAF8;
+    --bg-dark-3: #D7EBE3;
+    --bg-dark-1-rgb: 255, 255, 255;
+}
+
+/* GLOBAL */
+body, #wrapper, #content, section {
+    background-color: #FFFFFF;
+}
+
+/* REMOVE DARK THEME BACKGROUNDS */
+.bg-dark {
+    background-color: #FFFFFF !important;
+}
+
+.bg-dark-2 {
+    background-color: #F8FAF8 !important;
+}
+
+/* BRAND TYPOGRAPHY */
+body, p {
+    color: #28302F;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #20363A;
+}
+
+/* BUTTONS */
+.btn-main {
+    background-color: #20363A !important;
+    border-color: #20363A !important;
+    color: #FFFFFF !important;
+}
+
+/* HEADER */
+header {
+    background-color: #FFFFFF !important;
+}
+
+header #mainmenu a {
+    color: #20363A !important;
+}
+
+
+/* REMOVE ORIGINAL DARK AND BLUE OVERLAYS */
+.sw-overlay,
+.swiper-slide .sw-overlay,
+.swiper-slide .overlay {
+    background: transparent !important;
+    background-image: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* REMOVE COLOURED GRADIENTS */
+.gradient-edge-bottom,
+.de-gradient-edge-top {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+
+/* REMOVE BLUE DECORATIVE GRADIENTS */
+.swiper-slide .gradient-edge-bottom,
+.swiper-slide .de-gradient-edge-top {
+    background-image: none !important;
+}
+
+/* FOOTER */
+footer {
+    background-color: #20363A !important;
+    color: #FFFFFF;
+}
+
+
+/* NEATEN - REMOVE ORIGINAL PURPLE GRADIENTS */
+:root,
+body {
+    --bg-dark-1-rgb: 255, 255, 255 !important;
+}
+
+/* Remove dark gradient overlays */
+#content .gradient-edge-top,
+#content .gradient-edge-bottom,
+#content .gradient-edge-left,
+#content .gradient-edge-right {
+    background: none !important;
+    background-image: none !important;
+}
+
+/* Replace hero overlay with soft white */
+#content .sw-overlay {
+    background: rgba(255, 255, 255, 0.75) !important;
+    background-image: none !important;
+    opacity: 1 !important;
+}
+
+/* Dark text on the light hero */
+#content .swiper-slide h1,
+#content .swiper-slide h2,
+#content .swiper-slide p {
+    color: #20363A !important;
+}
+
+
+/* NEATEN HERO - IMPROVED TEXT VISIBILITY */
+
+/* Main headline */
+.neaten-hero h1,
+.neaten-hero h2,
+.neaten-hero h1 span,
+.neaten-hero h2 span {
+    color: #20363A !important;
+    text-shadow:
+        0 1px 2px rgba(255,255,255,1),
+        0 0 12px rgba(255,255,255,0.95),
+        0 0 28px rgba(255,255,255,0.75);
+}
+
+/* Supporting paragraph */
+.neaten-hero p {
+    color: #20363A !important;
+    text-shadow:
+        0 1px 3px rgba(255,255,255,1),
+        0 0 12px rgba(255,255,255,0.9);
+}
+
+/* Small uppercase subtitle */
+.neaten-hero .subtitle,
+.neaten-hero .id-color {
+    color: #20363A !important;
+    text-shadow:
+        0 1px 2px rgba(255,255,255,1),
+        0 0 10px rgba(255,255,255,0.95);
+}
+
+
+/* NEATEN HOME & WORK CARDS */
+.neaten-service-card {
+    background-color: #F8FAF8 !important;
+    border: 1px solid #D7EBE3;
+    color: #28302F !important;
+    transition: all 0.3s ease;
+}
+
+/* Card Headings */
+.neaten-service-card h3 {
+    color: #20363A !important;
+    font-weight: 600;
+}
+
+/* Card Descriptions */
+.neaten-service-card p {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.7;
+}
+
+/* Card Icons */
+.neaten-service-card i {
+    color: #8DAFA0 !important;
+}
+
+/* Subtle Hover Effect */
+.neaten-service-card:hover {
+    background-color: #D7EBE3 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(32, 54, 58, 0.08);
+}
+
+
+/* NEATEN WHY CHOOSE US SECTION */
+.neaten-why {
+    background-color: #FFFFFF !important;
+    color: #28302F !important;
+}
+
+/* Section Heading */
+.neaten-why h2 {
+    color: #20363A !important;
+}
+
+.neaten-why .subtitle {
+    color: #668B7B !important;
+}
+
+.neaten-why p {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.7;
+}
+
+/* Value Cards */
+.neaten-value-card {
+    background-color: #F8FAF8 !important;
+    border: 1px solid #D7EBE3;
+    color: #28302F !important;
+    transition: background-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Card Headings */
+.neaten-value-card h4 {
+    color: #20363A !important;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Card Text */
+.neaten-value-card p {
+    color: #28302F !important;
+    opacity: 1 !important;
+}
+
+/* Hover Effect */
+.neaten-value-card:hover {
+    background-color: #D7EBE3 !important;
+    box-shadow: 0 12px 30px rgba(32, 54, 58, 0.08);
+}
+
+
+/* NEATEN FOOTER */
+footer {
+    background-color: #20363A !important;
+    color: #D7EBE3 !important;
+}
+
+/* Headings */
+footer h3,
+footer h4,
+footer h5,
+footer .text-white {
+    color: #FFFFFF !important;
+}
+
+/* Paragraphs and descriptions */
+footer p,
+footer .widget p {
+    color: #D7EBE3 !important;
+    opacity: 1 !important;
+    line-height: 1.8;
+}
+
+/* Brand tagline and icons */
+footer .id-color,
+footer i.id-color {
+    color: #A9CDBD !important;
+}
+
+/* Footer navigation */
+footer .widget ul li a,
+footer .menu-simple li a {
+    color: #D7EBE3 !important;
+    transition: color 0.3s ease;
+}
+
+footer .widget ul li a:hover,
+footer .menu-simple li a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Contact button */
+footer .btn-main {
+    display: inline-flex;
+    align-items: center;
+    background-color: #D7EBE3 !important;
+    border: 1px solid #D7EBE3 !important;
+    color: #20363A !important;
+    border-radius: 5px;
+}
+
+footer .btn-main span {
+    color: #20363A !important;
+}
+
+/* Service link spacing */
+footer .widget ul li {
+    margin-bottom: 8px;
+}
+
+/* Copyright and legal links */
+footer .subfooter {
+    border-top: 1px solid rgba(215,235,227,0.15);
+}
+
+footer .subfooter .de-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+footer .subfooter .menu-simple {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding-right: 35px;
+}
+
+
+/* NEATEN PAGE BANNER */
+.neaten-page-banner {
+    background-color: #F8FAF8 !important;
+    color: #20363A !important;
+}
+
+/* Soft white overlay over background image */
+.neaten-page-banner .sw-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(248,250,248,0.55) !important;
+    opacity: 1 !important;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Main Page Heading */
+.neaten-page-banner h1 {
+    color: #20363A !important;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.8);
+    font-weight: 700;
+}
+
+/* Breadcrumb Links */
+.neaten-page-banner .crumb li,
+.neaten-page-banner .crumb li a,
+.neaten-page-banner .crumb li.active {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Breadcrumb Hover */
+.neaten-page-banner .crumb li a:hover {
+    color: #668B7B !important;
+}
+
+/* Breadcrumb Dividers */
+.neaten-page-banner .crumb li::before,
+.neaten-page-banner .crumb li::after {
+    color: #20363A !important;
+}
+
+/* Decorative Divider */
+.neaten-page-banner .border-bottom {
+    border-color: rgba(32,54,58,0.3) !important;
+}
+
+/* Remove original dark gradient */
+.neaten-page-banner .de-gradient-edge-top {
+    background: none !important;
+}
+
+
+/* NEATEN HEADER BACKGROUND */
+header,
+header.transparent,
+header.smaller {
+    background: #D7EBE3 !important;
+    box-shadow: 0 2px 12px rgba(32, 54, 58, 0.08);
+    transition: background 0.3s ease;
+}
+
+/* HEADER NAVIGATION TEXT */
+header #mainmenu a,
+header.transparent #mainmenu a,
+header.smaller #mainmenu a {
+    color: #20363A !important;
+}
+
+/* NAVIGATION HOVER */
+header #mainmenu a:hover {
+    color: #668B7B !important;
+}
+
+
+/* NEATEN SERVICES - PAGE BANNER */
+.neaten-page-banner h1 {
+    color: #20363A !important;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.8);
+}
+
+.neaten-page-banner .crumb li,
+.neaten-page-banner .crumb li a,
+.neaten-page-banner .crumb li.active {
+    color: #20363A !important;
+}
+
+/* SERVICES INTRODUCTION */
+.neaten-services-intro h2 {
+    color: #20363A !important;
+    font-weight: 600;
+}
+
+.neaten-services-intro .subtitle {
+    color: #668B7B !important;
+}
+
+.neaten-services-intro p {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.8;
+}
+
+
+/* NEATEN TESTIMONIALS PAGE */
+
+/* Page Banner Heading */
+.neaten-page-banner h1 {
+    color: #20363A !important;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.8);
+}
+
+/* Banner Breadcrumbs */
+.neaten-page-banner .crumb li,
+.neaten-page-banner .crumb li a,
+.neaten-page-banner .crumb li.active {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Customer Experience Heading */
+.neaten-testimonials-intro h2 {
+    color: #20363A !important;
+    font-weight: 600;
+}
+
+/* Section Subtitle */
+.neaten-testimonials-intro .subtitle {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Section Description */
+.neaten-testimonials-intro p {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.8;
+}
+
+
+/* NEATEN BLOG PAGE */
+
+/* Blog Banner Heading */
+.neaten-page-banner h1 {
+    color: #20363A !important;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.8);
+}
+
+/* Banner Breadcrumbs */
+.neaten-page-banner .crumb li,
+.neaten-page-banner .crumb li a,
+.neaten-page-banner .crumb li.active {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Blog Introduction Heading */
+.neaten-blog-intro h1,
+.neaten-blog-intro h2 {
+    color: #20363A !important;
+    font-weight: 600;
+    opacity: 1 !important;
+}
+
+/* Blog Subtitle */
+.neaten-blog-intro .subtitle,
+.neaten-blog-intro .id-color {
+    color: #668B7B !important;
+    opacity: 1 !important;
+}
+
+/* Blog Description */
+.neaten-blog-intro p {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   NEATEN CLEANING ENQUIRY FORM
+   ======================================== */
+
+/* Form Container */
+#booking_form.neaten-booking-form {
+    background-color: #F8FAF8 !important;
+    border: 1px solid #D7EBE3;
+    color: #28302F !important;
+    box-shadow: 0 10px 35px rgba(32, 54, 58, 0.08);
+}
+
+/* Form Heading */
+#booking_form h2,
+#booking_form h3 {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Descriptions and Supporting Text */
+#booking_form p,
+#booking_form .small {
+    color: #28302F !important;
+    opacity: 1 !important;
+    line-height: 1.7;
+}
+
+/* Field Labels */
+#booking_form label {
+    display: block;
+    color: #20363A !important;
+    font-weight: 600;
+    opacity: 1 !important;
+}
+
+/* Form Fields */
+#booking_form .form-control {
+    background-color: #FFFFFF !important;
+    color: #20363A !important;
+    border: 1px solid #B8D2C6 !important;
+    border-radius: 5px;
+    min-height: 48px;
+    opacity: 1 !important;
+}
+
+/* Textarea */
+#booking_form textarea.form-control {
+    min-height: 130px;
+    padding: 15px;
+}
+
+/* Placeholder Text */
+#booking_form .form-control::placeholder {
+    color: #687B75 !important;
+    opacity: 1 !important;
+}
+
+/* Dropdowns */
+#booking_form select,
+#booking_form select option {
+    color: #20363A !important;
+    background-color: #FFFFFF !important;
+}
+
+#booking_form select:invalid {
+    color: #687B75 !important;
+}
+
+/* Form Focus */
+#booking_form .form-control:focus {
+    border-color: #8DAFA0 !important;
+    box-shadow: 0 0 0 3px rgba(141, 175, 160, 0.2);
+    outline: none;
+}
+
+/* Icons and Dropdown Arrows */
+#booking_form i,
+#booking_form .id-color {
+    color: #20363A !important;
+}
+
+/* Privacy Policy Link */
+#booking_form a {
+    color: #20363A !important;
+    text-decoration: underline;
+}
+
+/* Submit Button */
+#booking_form #send_message {
+    background-color: #20363A !important;
+    border: 1px solid #20363A !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    padding: 14px 28px;
+    cursor: pointer;
+}
+
+/* Submit Button Hover */
+#booking_form #send_message:hover {
+    background-color: #8DAFA0 !important;
+    border-color: #8DAFA0 !important;
+    color: #20363A !important;
+}
+
+
+/* NEATEN SLIDE-OUT SIDEBAR */
+#extra-wrap {
+    background: #F8FAF8 !important;
+    color: #28302F !important;
+    border-left: 1px solid #D7EBE3;
+}
+
+/* Sidebar Headings */
+#extra-wrap h1,
+#extra-wrap h2,
+#extra-wrap h3,
+#extra-wrap h4,
+#extra-wrap h5,
+#extra-wrap h6,
+#extra-wrap .text-white {
+    color: #20363A !important;
+}
+
+/* Sidebar Descriptions */
+#extra-wrap p,
+#extra-wrap li,
+#extra-wrap span,
+#extra-wrap .text-light,
+#extra-wrap .widget {
+    color: #28302F !important;
+    opacity: 1 !important;
+}
+
+/* Sidebar Links */
+#extra-wrap a {
+    color: #20363A !important;
+}
+
+#extra-wrap a:hover {
+    color: #668B7B !important;
+}
+
+/* Sidebar Icons */
+#extra-wrap i,
+#extra-wrap .id-color {
+    color: #8DAFA0 !important;
+}
+
+/* Sidebar Contact Button */
+#extra-wrap .btn-main {
+    background: #20363A !important;
+    border-color: #20363A !important;
+    color: #FFFFFF !important;
+}
+
+#extra-wrap .btn-main span {
+    color: #FFFFFF !important;
+}
+
+/* Sidebar Close Button */
+#extra-wrap .close,
+#extra-wrap .btn-close {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+
+/* NEATEN TOP ANNOUNCEMENT BAR */
+header #topbar {
+    background: #20363A !important;
+    background-color: #20363A !important;
+}
+
+/* Top Bar Text and Links */
+header #topbar,
+header #topbar a,
+header #topbar .topbar-widget,
+header #topbar .topbar-widget a {
+    color: #D7EBE3 !important;
+    opacity: 1 !important;
+}
+
+/* Hover Effect */
+header #topbar a:hover {
+    color: #FFFFFF !important;
+}
+
+/* Top Bar Icons */
+header #topbar img {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+
+/* ========================================
+   NEATEN CONTACT PAGE
+   ======================================== */
+
+/* Navigation Text */
+.neaten-contact-page header #mainmenu a,
+.neaten-contact-page header #mainmenu li a {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Contact Banner */
+.neaten-contact-page .neaten-page-banner h1 {
+    color: #20363A !important;
+    text-shadow: 0 2px 12px rgba(255,255,255,0.8);
+}
+
+/* Breadcrumbs */
+.neaten-contact-page .neaten-page-banner .crumb li,
+.neaten-contact-page .neaten-page-banner .crumb a {
+    color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Left Information Panel */
+.neaten-contact-info {
+    background: #F8FAF8 !important;
+    color: #28302F !important;
+    border: 1px solid #D7EBE3;
+    border-radius: 10px;
+}
+
+/* Left Panel Headings */
+.neaten-contact-info h1,
+.neaten-contact-info h2,
+.neaten-contact-info h3,
+.neaten-contact-info h4,
+.neaten-contact-info .text-white {
+    color: #20363A !important;
+}
+
+/* Left Panel Descriptions */
+.neaten-contact-info p,
+.neaten-contact-info span,
+.neaten-contact-info li {
+    color: #28302F !important;
+    opacity: 1 !important;
+}
+
+/* Left Panel Subtitle */
+.neaten-contact-info .subtitle,
+.neaten-contact-info .id-color {
+    color: #668B7B !important;
+}
+
+/* Right Enquiry Panel */
+.neaten-contact-form {
+    background: #F8FAF8 !important;
+    color: #28302F !important;
+    border: 1px solid #D7EBE3;
+    border-radius: 10px;
+}
+
+/* Enquiry Form Heading */
+.neaten-contact-form h2,
+.neaten-contact-form h3,
+.neaten-contact-form h4 {
+    color: #20363A !important;
+}
+
+/* Form Labels and Descriptions */
+.neaten-contact-form p,
+.neaten-contact-form label {
+    color: #28302F !important;
+    opacity: 1 !important;
+}
+
+/* Inputs and Textarea */
+.neaten-contact-form input,
+.neaten-contact-form textarea,
+.neaten-contact-form select {
+    background: #FFFFFF !important;
+    color: #20363A !important;
+    border: 1px solid #B8D2C6 !important;
+    border-radius: 5px;
+}
+
+/* Input Placeholders */
+.neaten-contact-form input::placeholder,
+.neaten-contact-form textarea::placeholder {
+    color: #687B75 !important;
+    opacity: 1 !important;
+}
+
+/* Form Focus */
+.neaten-contact-form input:focus,
+.neaten-contact-form textarea:focus {
+    border-color: #8DAFA0 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(141,175,160,0.2);
+}
+
+/* Submit Button */
+.neaten-contact-form .btn-main {
+    background: #20363A !important;
+    border-color: #20363A !important;
+    color: #FFFFFF !important;
+}
+
+/* Button Text */
+.neaten-contact-form .btn-main span {
+    color: #FFFFFF !important;
+}
+
+/* Button Hover */
+.neaten-contact-form .btn-main:hover {
+    background: #8DAFA0 !important;
+    border-color: #8DAFA0 !important;
+}
+
+
+/* NEATEN CONTACT FORM */
+.neaten-contact-form {
+    background: #F8FAF8 !important;
+    color: #28302F !important;
+    border: 1px solid #D7EBE3;
+}
+
+/* Form Heading */
+.neaten-contact-form h3 {
+    color: #20363A !important;
+}
+
+/* Input Fields */
+.neaten-contact-form .form-control,
+.neaten-contact-form input,
+.neaten-contact-form textarea {
+    background: #FFFFFF !important;
+    color: #20363A !important;
+    border: 1px solid #B8D2C6 !important;
+    opacity: 1 !important;
+}
+
+/* Placeholder Text */
+.neaten-contact-form input::placeholder,
+.neaten-contact-form textarea::placeholder {
+    color: #687B75 !important;
+    opacity: 1 !important;
+}
+
+/* Submit Button */
+.neaten-contact-form .btn-main,
+.neaten-contact-form input[type="submit"] {
+    background: #20363A !important;
+    color: #FFFFFF !important;
+    border-color: #20363A !important;
+}
+
+
+/* NEATEN SIDEBAR CLOSE BUTTON */
+#extra-wrap #btn-close span,
+#extra-wrap #btn-close span::before,
+#extra-wrap #btn-close span::after {
+    background-color: #20363A !important;
+    opacity: 1 !important;
+}
+
+/* Hover Effect */
+#extra-wrap #btn-close:hover span,
+#extra-wrap #btn-close:hover span::before,
+#extra-wrap #btn-close:hover span::after {
+    background-color: #8DAFA0 !important;
+}
