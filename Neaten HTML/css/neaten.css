@@ -852,3 +852,528 @@ header #topbar img {
 #extra-wrap #btn-close:hover span::after {
     background-color: #8DAFA0 !important;
 }
+
+
+/* =========================================================
+   NEATEN | CLEANING PLAN & BOOKING CTA
+========================================================= */
+
+.neaten-booking {
+    --nb-slate: #20363A;
+    --nb-mint: #D7EBE3;
+    --nb-sage: #8DAFA0;
+    --nb-white: #F8FAF8;
+    --nb-charcoal: #28302F;
+
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0;
+    
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 43, 45, 0.35) 0%,
+            rgba(20, 43, 45, 0.12) 55%,
+            rgba(20, 43, 45, 0.05) 100%
+        ),
+        url("../images/background/neaten-booking-bg.png")
+        center center / cover no-repeat;
+
+        color: var(--nb-white);
+        isolation: isolate;
+    }
+
+.neaten-booking::before {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    top: -350px;
+    left: -250px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(141, 175, 160, 0.16),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.neaten-booking::after {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    bottom: -350px;
+    right: -150px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(215, 235, 227, 0.12),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.neaten-booking .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* LEFT CONTENT */
+
+.neaten-booking__intro {
+    max-width: 570px;
+}
+
+.neaten-booking__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    color: var(--nb-mint);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+}
+
+.neaten-booking__eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--nb-mint);
+    box-shadow: 0 0 0 5px rgba(215, 235, 227, 0.12);
+}
+
+.neaten-booking__title {
+    margin: 0 0 28px;
+    color: #FFFFFF;
+    font-size: clamp(42px, 5vw, 70px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -2.5px;
+}
+
+.neaten-booking__title span {
+    display: block;
+    color: var(--nb-mint);
+}
+
+.neaten-booking__description {
+    max-width: 490px;
+    margin: 0 0 35px;
+    color: rgba(248, 250, 248, 0.76);
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.neaten-booking__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.neaten-booking__benefit {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.neaten-booking__check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 27px;
+    height: 27px;
+    border: 1px solid rgba(215, 235, 227, 0.35);
+    border-radius: 50%;
+    color: var(--nb-mint);
+    font-size: 14px;
+}
+
+.neaten-booking__signature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 55px;
+    color: rgba(248, 250, 248, 0.58);
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 0.3px;
+}
+
+.neaten-booking__signature-line {
+    width: 35px;
+    height: 1px;
+    background: var(--nb-sage);
+}
+
+/* BOOKING CARD */
+
+.neaten-booking__card {
+    width: 100%;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    background: var(--nb-white);
+    color: var(--nb-charcoal);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+}
+
+.neaten-booking__card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.neaten-booking__step,
+.neaten-booking__step-count {
+    color: #648276;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.neaten-booking__step-count {
+    color: #9BAAA3;
+}
+
+.neaten-booking__card-title {
+    margin: 0 0 10px;
+    color: var(--nb-slate);
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.9px;
+}
+
+.neaten-booking__card-description {
+    margin: 0 0 30px;
+    color: #6B7872;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* FORM FIELDS */
+
+.neaten-booking__field {
+    display: block;
+    min-width: 0;
+    margin: 0 0 25px;
+    padding: 0;
+    border: 0;
+}
+
+.neaten-booking__label {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px;
+    padding: 0;
+    color: var(--nb-slate);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+.neaten-booking__choices {
+    display: grid;
+    gap: 10px;
+}
+
+.neaten-booking__choices--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.neaten-booking__choices--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.neaten-booking__choice {
+    position: relative;
+    display: block;
+    min-width: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.neaten-booking__choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.neaten-booking__choice-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 51px;
+    padding: 12px 10px;
+    border: 1px solid #DCE5DF;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #52615A;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.neaten-booking__choice-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.neaten-booking__choice input:checked + .neaten-booking__choice-content {
+    border-color: var(--nb-slate);
+    background: var(--nb-mint);
+    color: var(--nb-slate);
+    box-shadow: inset 0 0 0 1px var(--nb-slate);
+}
+
+.neaten-booking__choice input:focus-visible + .neaten-booking__choice-content {
+    outline: 3px solid #6C9D8C;
+    outline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .neaten-booking__choice:hover .neaten-booking__choice-content {
+        border-color: var(--nb-sage);
+    }
+}
+
+/* PROPERTY SIZE SELECT */
+
+.neaten-booking__select-wrap {
+    position: relative;
+}
+
+.neaten-booking__select {
+    display: block;
+    width: 100%;
+    height: 52px;
+    padding: 0 42px 0 16px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #DCE5DF;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--nb-slate);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.neaten-booking__select:focus-visible {
+    outline: 3px solid #6C9D8C;
+    outline-offset: 2px;
+}
+
+.neaten-booking__select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    color: var(--nb-slate);
+    font-size: 22px;
+    pointer-events: none;
+}
+
+/* LIVE RECOMMENDATION */
+
+.neaten-booking__result {
+    margin: 8px 0 25px;
+    padding: 22px;
+    border: 1px solid #C9DDD3;
+    border-radius: 10px;
+    background: #EAF3EE;
+}
+
+.neaten-booking__result-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.neaten-booking__result-label {
+    color: #58796A;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.neaten-booking__result-status {
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #D4E8DC;
+    color: #355A49;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.neaten-booking__result h4 {
+    margin: 0 0 8px;
+    color: var(--nb-slate);
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.neaten-booking__result p {
+    margin: 0 0 15px;
+    color: #526A5D;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.neaten-booking__result-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #456A58;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.neaten-booking__meta-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #8DAFA0;
+}
+
+/* BOOKING BUTTON */
+
+.neaten-booking__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 58px;
+    padding: 16px 20px;
+    border: 1px solid var(--nb-slate);
+    border-radius: 8px;
+    background: var(--nb-slate);
+    color: #FFFFFF !important;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none !important;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.neaten-booking__button-arrow {
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.neaten-booking__button:hover {
+    background: #345357;
+    border-color: #345357;
+    color: #FFFFFF !important;
+    box-shadow: 0 10px 25px rgba(32, 54, 58, 0.15);
+}
+
+.neaten-booking__button:hover .neaten-booking__button-arrow {
+    transform: translate(3px, -3px);
+}
+
+.neaten-booking__button:focus-visible {
+    outline: 3px solid #6C9D8C;
+    outline-offset: 3px;
+}
+
+.neaten-booking__footnote {
+    margin: 14px 0 0;
+    color: #7A8780;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+    .neaten-booking {
+        padding: 80px 0;
+    }
+
+    .neaten-booking__intro {
+        max-width: 100%;
+    }
+
+    .neaten-booking__title {
+        max-width: 650px;
+    }
+
+    .neaten-booking__signature {
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 575px) {
+    .neaten-booking {
+        padding: 65px 0;
+    }
+
+    .neaten-booking__title {
+        font-size: clamp(38px, 10vw, 52px);
+        letter-spacing: -1.7px;
+    }
+
+    .neaten-booking__description {
+        font-size: 14px;
+    }
+
+    .neaten-booking__card {
+        padding: 26px 20px;
+        border-radius: 14px;
+    }
+
+    .neaten-booking__card-title {
+        font-size: 27px;
+    }
+
+    .neaten-booking__choices--three {
+        gap: 6px;
+    }
+
+    .neaten-booking__choices--three .neaten-booking__choice-content {
+        padding: 12px 5px;
+        font-size: 11px;
+    }
+
+    .neaten-booking__result {
+        padding: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .neaten-booking *,
+    .neaten-booking *::before,
+    .neaten-booking *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+

@@ -388,18 +388,200 @@
             <!-- Neaten About Section End -->
 
 
-            <section class="pb-80 jarallax" aria-label="section">
-                <img src="images/background/3.png" class="jarallax-img" alt="">
-                <div class="gradient-edge-top"></div>
-                <div class="sw-overlay"></div>
-                <div class="container relative z-2">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-lg-10">
-                            <img src="images/misc/c1.png" class="w-100" alt="">
+            
+            <!-- NEATEN | CLEANING PLAN & BOOKING CTA -->
+            <section class="neaten-booking" id="book-cleaning" aria-labelledby="neaten-booking-title">
+                <div class="container">
+                    <div class="row align-items-center g-5">
+
+                        <!-- LEFT: BRAND STORY -->
+                        <div class="col-lg-6">
+                            <div class="neaten-booking__intro">
+
+                                <span class="neaten-booking__eyebrow">
+                                    <span class="neaten-booking__eyebrow-dot"></span>
+                                    A CLEANER SPACE, MADE SIMPLE
+                                </span>
+
+                                <h2 id="neaten-booking-title" class="neaten-booking__title">
+                                    A better feeling.
+                                    <span>Without the extra effort.</span>
+                                </h2>
+
+                                <p class="neaten-booking__description">
+                                    A beautifully maintained space shouldn't feel
+                                    like a luxury. Whether it's your home or your
+                                    workplace, we'll help you find a practical
+                                    cleaning routine that suits your property,
+                                    your schedule and your budget.
+                                </p>
+
+                                <div class="neaten-booking__benefits">
+                                    <div class="neaten-booking__benefit">
+                                        <span class="neaten-booking__check" aria-hidden="true">✓</span>
+                                        <span>Cleaning tailored to your space</span>
+                                    </div>
+
+                                    <div class="neaten-booking__benefit">
+                                        <span class="neaten-booking__check" aria-hidden="true">✓</span>
+                                        <span>Flexible one-off and regular visits</span>
+                                    </div>
+
+                                    <div class="neaten-booking__benefit">
+                                        <span class="neaten-booking__check" aria-hidden="true">✓</span>
+                                        <span>Clear pricing before you commit</span>
+                                    </div>
+                                </div>
+
+                                <div class="neaten-booking__signature">
+                                    <span class="neaten-booking__signature-line"></span>
+                                    A better feeling, in every space.
+                                </div>
+
+                            </div>
                         </div>
+
+                        <!-- RIGHT: INTERACTIVE BOOKING CARD -->
+                        <div class="col-lg-6">
+                            <div class="neaten-booking__card" id="neaten-plan-builder">
+
+                                <div class="neaten-booking__card-top">
+                                    <span class="neaten-booking__step">YOUR CLEANING PLAN</span>
+                                    <span class="neaten-booking__step-count">01 / 03</span>
+                                </div>
+
+                                <h3 class="neaten-booking__card-title">
+                                    Let's find your perfect clean.
+                                </h3>
+
+                                <p class="neaten-booking__card-description">
+                                    Tell us a little about your space.
+                                    We'll suggest a starting point.
+                                </p>
+
+                                <!-- PROPERTY TYPE -->
+                                <fieldset class="neaten-booking__field">
+                                    <legend class="neaten-booking__label">
+                                        01. What are we cleaning?
+                                    </legend>
+
+                                    <div class="neaten-booking__choices neaten-booking__choices--two">
+                                        <label class="neaten-booking__choice">
+                                            <input type="radio" name="neaten-property" value="Home" checked>
+                                            <span class="neaten-booking__choice-content">
+                                                <span class="neaten-booking__choice-icon" aria-hidden="true">⌂</span>
+                                                <span>My home</span>
+                                            </span>
+                                        </label>
+
+                                        <label class="neaten-booking__choice">
+                                            <input type="radio" name="neaten-property" value="Workplace">
+                                            <span class="neaten-booking__choice-content">
+                                                <span class="neaten-booking__choice-icon" aria-hidden="true">▦</span>
+                                                <span>My workplace</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+
+                                <!-- PROPERTY SIZE -->
+                                <div class="neaten-booking__field">
+                                    <label for="neaten-property-size" class="neaten-booking__label">
+                                        02. How big is your space?
+                                    </label>
+
+                                    <div class="neaten-booking__select-wrap">
+                                        <select id="neaten-property-size" class="neaten-booking__select">
+                                            <option value="Small space">Small space / 1–2 rooms</option>
+                                            <option value="Medium space" selected>Medium space / 3–4 rooms</option>
+                                            <option value="Large space">Large space / 5+ rooms</option>
+                                            <option value="Not sure">Not sure yet</option>
+                                        </select>
+                                        <span class="neaten-booking__select-arrow" aria-hidden="true">⌄</span>
+                                    </div>
+                                </div>
+
+                                <!-- FREQUENCY -->
+                                <fieldset class="neaten-booking__field">
+                                    <legend class="neaten-booking__label">
+                                        03. How often would you like us?
+                                    </legend>
+
+                                    <div class="neaten-booking__choices neaten-booking__choices--three">
+                                        <label class="neaten-booking__choice">
+                                            <input type="radio" name="neaten-frequency" value="Weekly">
+                                            <span class="neaten-booking__choice-content">
+                                                Weekly
+                                            </span>
+                                        </label>
+
+                                        <label class="neaten-booking__choice">
+                                            <input type="radio" name="neaten-frequency" value="Fortnightly" checked>
+                                            <span class="neaten-booking__choice-content">
+                                                Fortnightly
+                                            </span>
+                                        </label>
+
+                                        <label class="neaten-booking__choice">
+                                            <input type="radio" name="neaten-frequency" value="One-off">
+                                            <span class="neaten-booking__choice-content">
+                                                One-off
+                                            </span>
+                                        </label>
+                                    </div>
+                                </fieldset>
+
+                                <!-- DYNAMIC RECOMMENDATION -->
+                                <div class="neaten-booking__result" aria-live="polite" aria-atomic="true">
+                                    <div class="neaten-booking__result-header">
+                                        <span class="neaten-booking__result-label">
+                                            YOUR SUGGESTED PLAN
+                                        </span>
+                                        <span class="neaten-booking__result-status">
+                                            Personalised
+                                        </span>
+                                    </div>
+
+                                    <h4 id="neaten-plan-title">
+                                        The Balanced Clean
+                                    </h4>
+
+                                    <p id="neaten-plan-description">
+                                        A fortnightly visit to help your space
+                                        stay fresh, comfortable and cared for.
+                                    </p>
+
+                                    <div class="neaten-booking__result-meta">
+                                        <span id="neaten-plan-property">Home</span>
+                                        <span class="neaten-booking__meta-dot"></span>
+                                        <span id="neaten-plan-frequency">Every 2 weeks</span>
+                                    </div>
+                                </div>
+
+                                <!-- CALENDLY CTA -->
+                                <a
+                                    href="https://calendly.com/YOUR-USERNAME/cleaning-booking"
+                                    class="neaten-booking__button"
+                                    id="neaten-booking-button"
+                                    data-neaten-book
+                                >
+                                    <span>Find my cleaning slot</span>
+                                    <span class="neaten-booking__button-arrow" aria-hidden="true">↗</span>
+                                </a>
+
+                                <p class="neaten-booking__footnote">
+                                    No commitment to book. We'll confirm your
+                                    requirements and price before any cleaning begins.
+                                </p>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
+            <!-- END NEATEN BOOKING CTA -->
+
 
             <!-- Neaten Services Section Start -->
             <section class="bg-dark-2">
@@ -1366,6 +1548,21 @@
       $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.5, orientation: 'vertical'});
     });
     </script>
+
+
+    <!-- Calendly Popup Widget -->
+    <link
+        href="https://assets.calendly.com/assets/external/widget.css"
+        rel="stylesheet"
+    >
+    <script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        async
+    ></script>
+
+    <!-- Neaten Booking Experience -->
+    <script src="js/neaten-booking.js" defer></script>
+
 
 </body>
 
