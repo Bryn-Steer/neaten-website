@@ -600,7 +600,7 @@ button {
 
 .brand img {
     width: auto;
-    height: 30px;
+    height: 40px;
 }
 
 .primary-nav ul {
@@ -775,7 +775,7 @@ button {
     }
 
     .brand img {
-        height: 26px;
+        height: 34px;
     }
 }
 
@@ -2379,10 +2379,8 @@ button {
 }
 
 .footer-brand img {
-    height: 32px;
+    height: 52px;
     width: auto;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
 }
 
 .footer-statement {
