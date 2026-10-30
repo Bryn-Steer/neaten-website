@@ -1,6 +1,8 @@
-
 /* =========================================================
-   NEATEN | CLEANING PLAN & CALENDLY BOOKING
+   NEATEN | CLEANING PLAN & BOOKING
+   Suggests a starting plan, then hands the visitor to
+   Calendly (once configured) or to the enquiry form with
+   their choices carried across.
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -9,14 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const builder = document.getElementById("neaten-plan-builder");
     if (!builder) return;
 
-    const propertyInputs = builder.querySelectorAll(
-        'input[name="neaten-property"]'
-    );
-
-    const frequencyInputs = builder.querySelectorAll(
-        'input[name="neaten-frequency"]'
-    );
-
+    const propertyInputs = builder.querySelectorAll('input[name="neaten-property"]');
+    const frequencyInputs = builder.querySelectorAll('input[name="neaten-frequency"]');
     const sizeSelect = document.getElementById("neaten-property-size");
 
     const planTitle = document.getElementById("neaten-plan-title");
@@ -27,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // REPLACE WITH YOUR REAL CALENDLY EVENT URL
     const CALENDLY_URL = "https://calendly.com/YOUR-USERNAME/cleaning-booking";
+    const calendlyReady = !CALENDLY_URL.includes("YOUR-USERNAME");
 
     const plans = {
         Weekly: {
@@ -52,10 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     function getSelectedValue(name) {
-        const selected = builder.querySelector(
-            `input[name="${name}"]:checked`
-        );
-
+        const selected = builder.querySelector(`input[name="${name}"]:checked`);
         return selected ? selected.value : "";
     }
 
@@ -65,6 +59,25 @@ document.addEventListener("DOMContentLoaded", function () {
             size: sizeSelect.value,
             frequency: getSelectedValue("neaten-frequency")
         };
+    }
+
+    // Only suggest a service where the choice makes it unambiguous.
+    function suggestedService(preferences) {
+        if (preferences.frequency === "One-off") return "";
+        return preferences.property === "Home"
+            ? "Regular Domestic Cleaning"
+            : "Scheduled Commercial Cleaning";
+    }
+
+    function enquiryUrl(preferences) {
+        const params = new URLSearchParams();
+        const service = suggestedService(preferences);
+        if (service) params.set("service", service);
+        params.set(
+            "plan",
+            [preferences.property, preferences.size, preferences.frequency].join(" · ")
+        );
+        return "appointment.html?" + params.toString();
     }
 
     function updatePlan() {
@@ -77,6 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
         planDescription.textContent = plan.description;
         planProperty.textContent = preferences.property;
         planFrequency.textContent = plan.label;
+
+        if (!calendlyReady) bookingButton.href = enquiryUrl(preferences);
     }
 
     propertyInputs.forEach(function (input) {
@@ -89,27 +104,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     sizeSelect.addEventListener("change", updatePlan);
 
-    // Open Calendly with selected cleaning preferences.
     bookingButton.addEventListener("click", function (event) {
+        // Until Calendly is configured, the link goes to the enquiry form.
+        if (!calendlyReady) return;
+
         const preferences = getPreferences();
-
-        // Until configured, the link should not open a fake booking page.
-        if (CALENDLY_URL.includes("YOUR-USERNAME")) {
-            event.preventDefault();
-            window.alert(
-                "Online booking is being set up. Please contact Neaten to arrange your clean."
-            );
-            return;
-        }
-
         bookingButton.href = CALENDLY_URL;
 
-        // If Calendly's popup library is unavailable,
-        // allow the normal booking link to open.
-        if (
-            !window.Calendly ||
-            typeof window.Calendly.initPopupWidget !== "function"
-        ) {
+        // If Calendly's popup library is unavailable, follow the link.
+        if (!window.Calendly || typeof window.Calendly.initPopupWidget !== "function") {
             return;
         }
 
