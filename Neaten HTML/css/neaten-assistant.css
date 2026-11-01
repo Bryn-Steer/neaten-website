@@ -1,0 +1,618 @@
+/* =========================================================
+   NEATEN — ASSISTANT
+   A little help, when you need it.
+   Built on the tokens in neaten.css.
+
+   1. Launcher
+   2. Panel
+   3. Welcome & suggestions
+   4. Messages
+   5. Composer
+   6. Small screens
+   7. Reduced motion
+   ========================================================= */
+
+.nt-assist {
+    --nt-edge: 24px;
+    --nt-launcher: 56px;
+    font-family: var(--font-body);
+    color: var(--ink);
+}
+
+/* 1. LAUNCHER ---------------------------------------------- */
+.nt-launcher {
+    position: fixed;
+    right: max(var(--nt-edge), env(safe-area-inset-right));
+    bottom: max(var(--nt-edge), env(safe-area-inset-bottom));
+    z-index: 95;
+    display: grid;
+    place-items: center;
+    width: var(--nt-launcher);
+    height: var(--nt-launcher);
+    padding: 0;
+    border: 1px solid rgba(248, 250, 248, 0.08);
+    border-radius: 50%;
+    background: var(--slate);
+    color: var(--mint);
+    box-shadow: 0 1px 2px rgba(23, 42, 45, 0.18), 0 14px 32px -14px rgba(23, 42, 45, 0.55);
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.5s var(--ease), background-color 0.4s var(--ease), bottom 0.5s var(--ease), opacity 0.4s var(--ease), visibility 0s;
+}
+
+/* The same diagonal shine as the site's buttons */
+.nt-launcher::after {
+    content: "";
+    position: absolute;
+    inset: -2px auto -2px -60%;
+    width: 40%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    transform: skewX(-24deg);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.nt-launcher:hover {
+    background: var(--slate-soft);
+    transform: translateY(-2px);
+}
+
+.nt-launcher:hover::after {
+    transition: transform 0.9s var(--ease);
+    transform: skewX(-24deg) translateX(420%);
+}
+
+.nt-launcher:focus-visible {
+    outline: 2px solid var(--slate);
+    outline-offset: 3px;
+}
+
+.nt-launcher svg {
+    grid-area: 1 / 1;
+    transition: transform 0.6s var(--ease), opacity 0.35s var(--ease);
+}
+
+.nt-launcher__spark {
+    width: 20px;
+    height: 23px;
+}
+
+.nt-launcher__twinkle {
+    width: 7px;
+    height: 8px;
+    transform: translate(11px, -11px) scale(0.4);
+    opacity: 0;
+}
+
+.nt-launcher:hover .nt-launcher__spark {
+    transform: rotate(45deg) scale(0.92);
+}
+
+.nt-launcher:hover .nt-launcher__twinkle {
+    transform: translate(11px, -11px) scale(1);
+    opacity: 0.8;
+}
+
+.nt-launcher__close {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    transform: rotate(-45deg) scale(0.6);
+}
+
+.nt-launcher[aria-expanded="true"] .nt-launcher__spark,
+.nt-launcher[aria-expanded="true"] .nt-launcher__twinkle {
+    opacity: 0;
+    transform: rotate(45deg) scale(0.5);
+}
+
+.nt-launcher[aria-expanded="true"] .nt-launcher__close {
+    opacity: 1;
+    transform: none;
+}
+
+/* Keep clear of the mobile booking bar, and step aside for the menu */
+body:has(.mobile-cta.is-visible) .nt-launcher {
+    bottom: calc(max(12px, env(safe-area-inset-bottom)) + 76px);
+}
+
+body.menu-open .nt-launcher {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s var(--ease), visibility 0s linear 0.3s;
+}
+
+/* 2. PANEL ------------------------------------------------- */
+.nt-panel {
+    position: fixed;
+    right: max(var(--nt-edge), env(safe-area-inset-right));
+    bottom: calc(max(var(--nt-edge), env(safe-area-inset-bottom)) + var(--nt-launcher) + 14px);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    width: min(392px, calc(100vw - 32px));
+    height: min(640px, calc(100dvh - var(--nt-launcher) - 72px));
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--warm-white);
+    box-shadow: 0 2px 6px rgba(23, 42, 45, 0.06), 0 32px 64px -24px rgba(23, 42, 45, 0.38);
+    overflow: hidden;
+    transform-origin: calc(100% - 28px) calc(100% + 40px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.96);
+    transition: opacity 0.35s var(--ease), transform 0.5s var(--ease), visibility 0s linear 0.5s;
+}
+
+.nt-panel.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity 0.35s var(--ease), transform 0.5s var(--ease), visibility 0s;
+}
+
+.nt-panel__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 14px 16px 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.nt-mark {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--mint);
+    color: var(--slate);
+}
+
+.nt-mark svg {
+    width: 14px;
+    height: 16px;
+}
+
+.nt-panel__title {
+    flex: 1;
+    min-width: 0;
+    outline: none;
+}
+
+.nt-panel__title h2 {
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.nt-panel__title p {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 2px 0 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.nt-panel__title p::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+}
+
+.nt-icon-btn {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink-muted);
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+
+.nt-icon-btn:hover {
+    background: var(--mint-soft);
+    color: var(--ink);
+}
+
+.nt-icon-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.nt-icon-btn[hidden] {
+    display: none !important;
+}
+
+.nt-panel__body {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    padding: 24px 18px 8px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-strong) transparent;
+}
+
+/* 3. WELCOME & SUGGESTIONS --------------------------------- */
+.nt-welcome {
+    margin-bottom: 22px;
+}
+
+.nt-welcome__title {
+    margin-bottom: 10px;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+.nt-welcome__title em {
+    font-style: italic;
+}
+
+.nt-welcome p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ink-muted);
+}
+
+.nt-suggest {
+    display: grid;
+    margin-bottom: 18px;
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.nt-suggest.is-leaving {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.nt-suggest__label {
+    margin-bottom: 8px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.nt-suggest ul {
+    display: grid;
+    gap: 8px;
+}
+
+.nt-suggest button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 14px 10px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-sm);
+    background: var(--paper);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.35;
+    text-align: left;
+    color: var(--ink);
+    transition: border-color 0.3s var(--ease), background-color 0.3s var(--ease);
+    animation: nt-rise 0.5s var(--ease) both;
+    animation-delay: calc(var(--i, 0) * 50ms + 120ms);
+}
+
+.nt-suggest button svg {
+    flex: none;
+    width: 14px;
+    height: 14px;
+    color: var(--ink-faint);
+    transition: transform 0.4s var(--ease), color 0.3s var(--ease);
+}
+
+.nt-suggest button:hover {
+    border-color: var(--line-strong);
+    background: var(--mint-soft);
+}
+
+.nt-suggest button:hover svg {
+    color: var(--ink);
+    transform: translateX(3px);
+}
+
+/* 4. MESSAGES ---------------------------------------------- */
+.nt-log {
+    display: grid;
+    gap: 14px;
+}
+
+.nt-msg {
+    max-width: 88%;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    animation: nt-rise 0.45s var(--ease) both;
+}
+
+.nt-msg--visitor {
+    justify-self: end;
+    padding: 10px 16px;
+    border-radius: 20px 20px 6px 20px;
+    background: var(--slate);
+    color: var(--on-dark);
+    white-space: pre-wrap;
+}
+
+.nt-msg--assistant {
+    justify-self: start;
+    padding: 12px 16px;
+    border-radius: 20px 20px 20px 6px;
+    background: var(--mint-soft);
+}
+
+.nt-msg--assistant p,
+.nt-msg--assistant ul {
+    margin: 0 0 0.6em;
+}
+
+.nt-msg--assistant > :last-child {
+    margin-bottom: 0;
+}
+
+.nt-msg--assistant ul {
+    display: grid;
+    gap: 4px;
+}
+
+.nt-msg--assistant li {
+    position: relative;
+    padding-left: 16px;
+}
+
+.nt-msg--assistant li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.62em;
+    width: 5px;
+    height: 9px;
+    background: var(--sage);
+    clip-path: polygon(0 32%, 100% 0, 100% 68%, 0 100%);
+}
+
+.nt-msg--assistant strong {
+    font-weight: 600;
+}
+
+.nt-msg--assistant a {
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--sage);
+    transition: text-decoration-color 0.3s var(--ease);
+}
+
+.nt-msg--assistant a:hover {
+    text-decoration-color: currentColor;
+}
+
+.nt-msg--notice {
+    background: var(--paper);
+    border: 1px solid var(--line);
+}
+
+.nt-msg.is-restored {
+    animation: none;
+}
+
+/* Typing indicator */
+.nt-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    justify-self: start;
+    padding: 14px 16px;
+    border-radius: 20px 20px 20px 6px;
+    background: var(--mint-soft);
+    animation: nt-rise 0.35s var(--ease) both;
+}
+
+.nt-typing span[aria-hidden] {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    animation: nt-breathe 1.4s var(--ease-in-out) infinite;
+}
+
+.nt-typing span[aria-hidden]:nth-child(2) { animation-delay: 0.18s; }
+.nt-typing span[aria-hidden]:nth-child(3) { animation-delay: 0.36s; }
+
+@keyframes nt-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@keyframes nt-breathe {
+    0%, 100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+/* 5. COMPOSER ---------------------------------------------- */
+.nt-composer {
+    padding: 10px 14px 12px;
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.nt-field {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 5px 5px 5px 16px;
+    border: 1px solid var(--line-strong);
+    border-radius: 24px;
+    background: var(--warm-white);
+    transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.nt-field:focus-within {
+    border-color: var(--slate);
+    box-shadow: 0 0 0 3px rgba(141, 175, 160, 0.28);
+}
+
+.nt-field textarea {
+    flex: 1;
+    min-width: 0;
+    max-height: 120px;
+    margin: 0;
+    padding: 9px 0;
+    border: 0;
+    background: transparent;
+    font-size: 1rem;
+    line-height: 1.4;
+    resize: none;
+    outline: none;
+}
+
+.nt-field textarea::placeholder {
+    color: var(--ink-faint);
+}
+
+.nt-send {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--slate);
+    color: var(--on-dark);
+    transition: background-color 0.3s var(--ease), opacity 0.3s var(--ease), transform 0.4s var(--ease);
+}
+
+.nt-send svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s var(--ease);
+}
+
+.nt-send:hover:not([aria-disabled="true"]) {
+    background: var(--slate-soft);
+}
+
+.nt-send:hover:not([aria-disabled="true"]) svg {
+    transform: translateY(-2px);
+}
+
+.nt-send[aria-disabled="true"] {
+    opacity: 0.32;
+    cursor: default;
+}
+
+.nt-note {
+    margin: 8px 4px 0;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--ink-faint);
+    text-align: center;
+}
+
+.nt-note a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* 6. SMALL SCREENS ----------------------------------------- */
+@media (max-width: 767px) {
+    .nt-assist {
+        --nt-edge: 16px;
+        --nt-launcher: 52px;
+    }
+}
+
+/* Below 600px the panel becomes a sheet that follows the visual viewport,
+   so it stays above the on-screen keyboard. */
+@media (max-width: 600px) {
+    .nt-panel {
+        left: max(8px, env(safe-area-inset-left));
+        right: max(8px, env(safe-area-inset-right));
+        bottom: calc(var(--nt-kb, 0px) + max(8px, env(safe-area-inset-bottom)));
+        width: auto;
+        height: min(720px, calc(var(--nt-vh, 100dvh) - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)));
+        border-radius: 24px;
+        transform-origin: 50% 100%;
+        transform: translateY(24px);
+    }
+
+    html.nt-assist-open,
+    html.nt-assist-open body {
+        overflow: hidden;
+    }
+
+    html.nt-assist-open .nt-launcher {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s var(--ease), visibility 0s linear 0.3s;
+    }
+
+    .nt-panel__body {
+        padding-inline: 16px;
+    }
+
+    .nt-welcome__title {
+        font-size: 1.625rem;
+    }
+}
+
+/* 7. REDUCED MOTION ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .nt-assist *,
+    .nt-assist *::before,
+    .nt-assist *::after,
+    .nt-launcher,
+    .nt-panel {
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+    }
+
+    .nt-panel,
+    .nt-panel.is-open,
+    .nt-launcher:hover {
+        transform: none;
+    }
+
+    .nt-typing span[aria-hidden] {
+        opacity: 0.6;
+    }
+}

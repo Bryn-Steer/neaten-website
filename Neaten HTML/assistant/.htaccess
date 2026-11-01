@@ -1,0 +1,3 @@
+# The assistant's code, knowledge and dependencies are server-side only.
+# Only ../assistant.php is public.
+Require all denied
