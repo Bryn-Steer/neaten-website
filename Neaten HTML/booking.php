@@ -1,4 +1,3 @@
-
 <?php
 // Neaten Cleaning Enquiry Form
 // Replace both email addresses with your real, configured addresses.
@@ -15,6 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Spam trap: real visitors never fill this hidden field
+if (!empty($_POST['website'])) {
+    echo 'sent';
+    exit;
+}
+
 // Safely retrieve submitted fields
 function getField($key, $maxLength = 200) {
     if (!isset($_POST[$key]) || !is_string($_POST[$key])) {
@@ -23,7 +28,7 @@ function getField($key, $maxLength = 200) {
     return substr(trim($_POST[$key]), 0, $maxLength);
 }
 
-$name = getField('name');
+$name = str_replace(["\r", "\n"], ' ', getField('name'));
 $email = getField('email');
 $phone = getField('phone');
 $service = getField('service');
